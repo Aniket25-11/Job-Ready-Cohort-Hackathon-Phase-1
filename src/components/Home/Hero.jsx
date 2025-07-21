@@ -104,7 +104,7 @@ const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.6 }}
           className="text-lg md:text-xl text-white/80 mb-8 max-w-md"
         >
           Make sure all the choices you make in life come from a point of awareness and not ignorance.
@@ -112,7 +112,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 1 }}
           className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center"
         >
           <button className="px-6 py-3 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] rounded-full text-white hover:shadow-lg transition-all flex items-center justify-center">

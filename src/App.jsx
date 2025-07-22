@@ -8,7 +8,7 @@ import Intro from "./components/Home/Intro";
 import LatestContent from "./components/Home/LatestContent";
 // import ScrollVelocity from "./components/Home/ScrollVelocity";
 import CTA from "./components/Home/CTA";
-// import Footer from "./components/Home/Footer";
+import Footer from "./components/Home/Footer";
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
       <CTA variant="courses" />  {/* For courses CTA */}
       <CTA variant="book" />     {/* For book promotion */}
       <CTA variant="youtube" />  {/* For YouTube channel */}
-      {/* <Footer /> */}
+      <Footer />
       
        {/* <CoursesSection /> */}
       {/* <NewsletterCTA /> */}

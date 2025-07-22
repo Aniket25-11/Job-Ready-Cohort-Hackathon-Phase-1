@@ -7,7 +7,7 @@ import MarqueeSection from "./components/Home/MarqueeSection";
 import Intro from "./components/Home/Intro";
 import LatestContent from "./components/Home/LatestContent";
 // import ScrollVelocity from "./components/Home/ScrollVelocity";
-// import CTA from "./components/Home/CTA";
+import CTA from "./components/Home/CTA";
 // import Footer from "./components/Home/Footer";
 
 
@@ -19,9 +19,9 @@ function App() {
       <MarqueeSection />
       <Intro />
       <LatestContent />
-       {/* <CTA variant="courses" />  For courses CTA */}
-      {/* <CTA variant="book" />     For book promotion */}
-      {/* <CTA variant="youtube" />  For YouTube channel */}
+      <CTA variant="courses" />  {/* For courses CTA */}
+      <CTA variant="book" />     {/* For book promotion */}
+      <CTA variant="youtube" />  {/* For YouTube channel */}
       {/* <Footer /> */}
       
        {/* <CoursesSection /> */}

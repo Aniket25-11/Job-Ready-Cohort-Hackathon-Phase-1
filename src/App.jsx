@@ -4,7 +4,7 @@ import Hero from "./components/Home/Hero";
 // import NewsletterCTA from "./components/Home/NewsletterCTA";
 // import SocialFeed from "./components/Home/SocialFeed";
 import MarqueeSection from "./components/Home/MarqueeSection";
-// import Intro from "./components/Home/Intro";
+import Intro from "./components/Home/Intro";
 // import LatestContent from "./components/Home/LatestContent";
 // import ScrollVelocity from "./components/Home/ScrollVelocity";
 // import CTA from "./components/Home/CTA";
@@ -17,7 +17,7 @@ function App() {
       {/* Home Section  */}
       <Hero />
       <MarqueeSection />
-      {/* <Intro /> */}
+      <Intro />
       {/* <LatestContent /> */}
        {/* <CTA variant="courses" />  For courses CTA */}
       {/* <CTA variant="book" />     For book promotion */}

@@ -1,39 +1,28 @@
-import Hero from "./components/Home/Hero";
-// import VideoSection from "./components/Home/VideoSection";
-// import CoursesSection from "./components/Home/CoursesSection";
-// import NewsletterCTA from "./components/Home/NewsletterCTA";
-// import SocialFeed from "./components/Home/SocialFeed";
-import MarqueeSection from "./components/Home/MarqueeSection";
-import Intro from "./components/Home/Intro";
-import LatestContent from "./components/Home/LatestContent";
-// import ScrollVelocity from "./components/Home/ScrollVelocity";
-import CTA from "./components/Home/CTA";
-import Footer from "./components/Home/Footer";
+// App.jsx
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Navbar from "./components/Home/Navbar";
+import HomePage from "./pages/HomePage";
+import ProductsPage from "./pages/ProductsPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
+import AboutPage from "./pages/AboutPage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+
 
 
 function App() {
   return (
-    <div className="bg-gray-300 text-white">
-      {/* Home Section  */}
-      <Hero />
-      <MarqueeSection />
-      <Intro />
-      <LatestContent />
-      <CTA variant="courses" />  {/* For courses CTA */}
-      <CTA variant="book" />     {/* For book promotion */}
-      <CTA variant="youtube" />  {/* For YouTube channel */}
-      <Footer />
-      
-       {/* <CoursesSection /> */}
-      {/* <NewsletterCTA /> */}
-      {/* <ScrollVelocity />  */}
-      {/* <SocialFeed /> */}
-      {/* <VideoSection /> */}
-
-      {/* Home Section Completed  */}
-
-     
-    </div>
+    <BrowserRouter>
+      {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/product-details" element={<ProductDetailsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

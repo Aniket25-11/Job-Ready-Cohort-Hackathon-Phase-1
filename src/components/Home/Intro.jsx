@@ -91,11 +91,11 @@ const Intro = () => {
   ];
 
   const socialLinks = [
-    { icon: <FaYoutube className="w-5 h-5" />, name: 'YouTube', url: '#', color: 'text-red-600' },
-    { icon: <FaInstagram className="w-5 h-5" />, name: 'Instagram', url: '#', color: 'text-pink-600' },
-    { icon: <FaTwitter className="w-5 h-5" />, name: 'Twitter', url: '#', color: 'text-blue-400' },
-    { icon: <FaLinkedin className="w-5 h-5" />, name: 'LinkedIn', url: '#', color: 'text-blue-700' },
-    { icon: <FaSpotify className="w-5 h-5" />, name: 'Podcast', url: '#', color: 'text-green-500' }
+    { icon: <FaYoutube className="w-5 h-5" />, name: 'YouTube', url: 'https://www.youtube.com/@warikoo', color: 'text-red-600' },
+    { icon: <FaInstagram className="w-5 h-5" />, name: 'Instagram', url: 'https://www.instagram.com/ankurwarikoo/', color: 'text-pink-600' },
+    { icon: <FaTwitter className="w-5 h-5" />, name: 'Twitter', url: 'https://x.com/warikoo', color: 'text-blue-400' },
+    { icon: <FaLinkedin className="w-5 h-5" />, name: 'LinkedIn', url: 'https://x.com/warikoo', color: 'text-blue-700' },
+    { icon: <FaSpotify className="w-5 h-5" />, name: 'Podcast', url: 'https://open.spotify.com/show/1g7wpoqydK6hszvi4DFywg', color: 'text-green-500' }
   ];
 
   return (
@@ -137,7 +137,10 @@ const Intro = () => {
               followers across platforms, he's become one of India's most trusted voices in business
               and self-improvement.
             </p>
-            <button className="group flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] rounded-full text-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <button
+              onClick={() => navigate('/about')}
+              className="group flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] rounded-full text-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
               <span>Read Full Bio</span>
               <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
             </button>

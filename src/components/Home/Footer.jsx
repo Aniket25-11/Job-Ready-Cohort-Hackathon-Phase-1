@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FaYoutube, FaInstagram, FaTwitter, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaYoutube, FaInstagram, FaTwitter, FaLinkedin, FaSpotify } from 'react-icons/fa';
 import { FiArrowUp } from 'react-icons/fi';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 
@@ -43,11 +43,11 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: <FaYoutube />, name: "YouTube", url: "#", color: "hover:text-red-500" },
-    { icon: <FaInstagram />, name: "Instagram", url: "#", color: "hover:text-pink-500" },
-    { icon: <FaTwitter />, name: "Twitter", url: "#", color: "hover:text-blue-400" },
-    { icon: <FaLinkedin />, name: "LinkedIn", url: "#", color: "hover:text-blue-600" },
-    { icon: <FaEnvelope />, name: "Email", url: "#", color: "hover:text-gray-300" },
+    { icon: <FaYoutube />, name: "YouTube", url: "https://www.youtube.com/@warikoo", color: "hover:text-red-500" },
+    { icon: <FaInstagram />, name: "Instagram", url: "https://www.instagram.com/ankurwarikoo/", color: "hover:text-pink-500" },
+    { icon: <FaTwitter />, name: "Twitter", url: "https://x.com/warikoo", color: "hover:text-blue-400" },
+    { icon: <FaLinkedin />, name: "LinkedIn", url: "http://linkedin.com/in/warikoo", color: "hover:text-blue-600" },
+    { icon: <FaSpotify />, name: "podcast", url: "https://open.spotify.com/show/1g7wpoqydK6hszvi4DFywg", color: "hover:text-green-300" },
   ];
 
   const scrollToTop = () => {

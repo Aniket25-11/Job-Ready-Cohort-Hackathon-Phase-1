@@ -14,7 +14,8 @@ const register = async (req, res) => {
 
     res.status(201).json({ message: 'User created' });
   } catch (err) {
-    console.error("❌ Registration error:", err);
+    console.error("❌ Registration error:", err.message);
+  console.error(err.stack); // Log stack trace for deeper issues
 
     res.status(500).json({ message: 'Server error' });
   }
@@ -38,7 +39,7 @@ const login = async (req, res) => {
     console.log("User from login !", user);
 
     console.log("Password match:", isMatch);
-    
+
     res.json({
       token,
       user: {

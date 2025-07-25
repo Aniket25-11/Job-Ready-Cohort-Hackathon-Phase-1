@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+// import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 import {
   FiShoppingCart,
   FiBookOpen,
@@ -38,6 +41,8 @@ const ProductHome = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [hoveredBook, setHoveredBook] = useState(null);
+  const navigate = useNavigate();
+
 
   const books = [
     {
@@ -50,7 +55,8 @@ const ProductHome = () => {
       rating: 4.8,
       link: "https://ankurwarikoo.com/do-epic-shit",
       features: ["30+ powerful lessons", "Personal anecdotes", "Actionable frameworks"],
-      accentColor: "#6C63FF"
+      accentColor: "#6C63FF",
+       route: "/product-details"
     },
     {
       id: 2,
@@ -62,7 +68,8 @@ const ProductHome = () => {
       rating: 4.7,
       link: "https://ankurwarikoo.com/get-epic-shit-done",
       features: ["Time management hacks", "Focus techniques", "Work-life balance"],
-      accentColor: "#4F46E5"
+      accentColor: "#4F46E5",
+       route: "/product-details-2"
     },
     {
       id: 3,
@@ -74,7 +81,8 @@ const ProductHome = () => {
       rating: 4.9,
       link: "https://ankurwarikoo.com/make-epic-money",
       features: ["Investing fundamentals", "Tax optimization", "Wealth mindset"],
-      accentColor: "#10B981"
+      accentColor: "#10B981",
+       route: "/product-details-3"
     },
     {
       id: 4,
@@ -86,7 +94,8 @@ const ProductHome = () => {
       rating: 4.6,
       link: "https://ankurwarikoo.com/build-epic-career",
       features: ["Career pivoting", "Skill development", "Networking strategies"],
-      accentColor: "#F59E0B"
+      accentColor: "#F59E0B",
+       route: "/product-details-4"
     }
   ];
 
@@ -176,7 +185,7 @@ const ProductHome = () => {
             className="w-full sm:w-auto flex justify-end"
           >
             <button
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
+              onClick={() => navigate(book.route)}
               className="flex items-center gap-2 px-4 sm:px-5 py-1.5 sm:py-2 bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md transition-all text-xs sm:text-sm"
             >
               <FiFilter className="text-purple-600 text-sm sm:text-base" />
@@ -240,9 +249,12 @@ const ProductHome = () => {
                       >
                         <FiBookOpen />
                       </a>
-                      <button className="p-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-md transition-all">
+                      
+                      <Link 
+                      to={book.route}
+                      className="p-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-md transition-all">
                         <FiShoppingCart />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -267,7 +279,9 @@ const ProductHome = () => {
                       </li>
                     ))}
                   </ul>
-                  <button className="mt-4 w-full py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:shadow-md transition-all flex items-center justify-center gap-2">
+                  <button  
+                  onClick={() => navigate(book.route)}
+                  className="mt-4 w-full py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:shadow-md transition-all flex items-center justify-center gap-2">
                     <span>Add to Cart</span>
                     <FiChevronRight />
                   </button>

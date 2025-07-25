@@ -1,7 +1,6 @@
 import React from "react";
-import ProductDetailsSection from "../components/ProductDetails/Book1/ProductDetailsSection";
 import Navbar from "../components/Home/Navbar";
-
+import ProductDetailsSection4 from "../components/ProductDetails/Book4/ProductDetailsSection4";
 
 const ProductDetailsPage = () => {
   return (
@@ -9,7 +8,7 @@ const ProductDetailsPage = () => {
       <Navbar />
       <div className="bg-red-200 h-screen w-full">
         {" "}
-        <ProductDetailsSection />
+        <ProductDetailsSection4 />
       </div>
     </div>
   );

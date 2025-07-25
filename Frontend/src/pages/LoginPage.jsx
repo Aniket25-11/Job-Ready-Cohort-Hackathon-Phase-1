@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiLock, FiLogIn, FiArrowRight } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
-import { login } from '../services/authService'; // <-- using your custom backend
+import { Link, useNavigate } from 'react-router-dom'; // ✅ Added useNavigate
+import { login } from '../services/authService';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -11,6 +11,8 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  const navigate = useNavigate(); // ✅ React Router navigation
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -18,11 +20,9 @@ const LoginPage = () => {
 
     try {
       const res = await login({ email, password });
-      // Save JWT token and user info
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
-      // Redirect after successful login
-      window.location.href = '/dashboard';
+      navigate('/'); // ✅ Proper route change
     } catch (err) {
       const msg = err.response?.data?.message || 'Login failed';
       setError(msg);

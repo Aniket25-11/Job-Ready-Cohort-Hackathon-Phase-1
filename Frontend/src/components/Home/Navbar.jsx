@@ -1,13 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiUser } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    navigate("/login");
+  };
+
+  const AuthButton = () => {
+    return isLoggedIn ? (
+      <button
+        onClick={handleLogout}
+        className="px-4 py-2 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] rounded-full text-white hover:shadow-lg transition-all"
+      >
+        Logout
+      </button>
+    ) : (
+      <Link
+        to="/login"
+        className="flex items-center gap-1 px-4 py-2 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] rounded-full text-white hover:shadow-lg transition-all"
+      >
+        <FiUser className="w-4 h-4" />
+        Login/Signup
+      </Link>
+    );
   };
 
   return (
@@ -35,17 +67,22 @@ const Navbar = () => {
             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#6C63FF] transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link to="/product-details" className="text-white hover:text-[#6C63FF] transition-colors duration-300 relative group">
-            Product Details
+            Book 1
             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#6C63FF] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link to="/about" className="text-white hover:text-[#6C63FF] transition-colors duration-300 relative group">
-            About
+          <Link to="/product-details-2" className="text-white hover:text-[#6C63FF] transition-colors duration-300 relative group">
+            Book 2
             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#6C63FF] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          <Link to="/login" className="flex items-center gap-1 px-4 py-2 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] rounded-full text-white hover:shadow-lg transition-all">
-            <FiUser className="w-4 h-4" />
-            Login/Signup
+          <Link to="/product-details-3" className="text-white hover:text-[#6C63FF] transition-colors duration-300 relative group">
+            Book 3
+            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#6C63FF] transition-all duration-300 group-hover:w-full"></span>
           </Link>
+          <Link to="/product-details-4" className="text-white hover:text-[#6C63FF] transition-colors duration-300 relative group">
+            Book 4
+            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#6C63FF] transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <AuthButton />
         </div>
       </div>
 
@@ -59,12 +96,13 @@ const Navbar = () => {
         >
           <Link to="/" className="block text-white hover:text-[#6C63FF] transition-colors py-2">Home</Link>
           <Link to="/products" className="block text-white hover:text-[#6C63FF] transition-colors py-2">Products</Link>
-          <Link to="/product-details" className="block text-white hover:text-[#6C63FF] transition-colors py-2">Product Details</Link>
-          <Link to="/about" className="block text-white hover:text-[#6C63FF] transition-colors py-2">About</Link>
-          <Link to="/login" className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] rounded-full text-white w-max">
-            <FiUser className="w-4 h-4" />
-            Login/Signup
-          </Link>
+          <Link to="/product-details" className="block text-white hover:text-[#6C63FF] transition-colors py-2">Book 1</Link>
+          <Link to="/product-details-2" className="block text-white hover:text-[#6C63FF] transition-colors py-2">Book 2</Link>
+          <Link to="/product-details-3" className="block text-white hover:text-[#6C63FF] transition-colors py-2">Book 3</Link>
+          <Link to="/product-details-4" className="block text-white hover:text-[#6C63FF] transition-colors py-2">Book 4</Link>
+          <div className="w-max">
+            <AuthButton />
+          </div>
         </motion.div>
       )}
     </nav>

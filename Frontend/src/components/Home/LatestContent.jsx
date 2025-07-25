@@ -20,59 +20,59 @@ const LatestContent = () => {
 
 //   This code is using Youtube API 
 
-//   useEffect(() => {
-//     const fetchVideos = async () => {
-//       try {
-//         // Step 1: Get playlist items
-//         const playlistRes = await fetch(
-//           `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=8&playlistId=${PLAYLIST_ID}&key=${API_KEY}`
-//         );
-//         const playlistData = await playlistRes.json();
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        // Step 1: Get playlist items
+        const playlistRes = await fetch(
+          `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=8&playlistId=${PLAYLIST_ID}&key=${API_KEY}`
+        );
+        const playlistData = await playlistRes.json();
 
-//         const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
+        const videoIds = playlistData.items.map(item => item.snippet.resourceId.videoId).join(',');
 
-//         // Step 2: Get video stats and duration
-//         const statsRes = await fetch(
-//           `https://youtube.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${videoIds}&key=${API_KEY}`
-//         );
-//         const statsData = await statsRes.json();
+        // Step 2: Get video stats and duration
+        const statsRes = await fetch(
+          `https://youtube.googleapis.com/youtube/v3/videos?part=statistics,contentDetails&id=${videoIds}&key=${API_KEY}`
+        );
+        const statsData = await statsRes.json();
 
-//         // Combine snippet and stats
-//         const combined = playlistData.items.map(item => {
-//           const id = item.snippet.resourceId.videoId;
-//           const stat = statsData.items.find(v => v.id === id);
+        // Combine snippet and stats
+        const combined = playlistData.items.map(item => {
+          const id = item.snippet.resourceId.videoId;
+          const stat = statsData.items.find(v => v.id === id);
 
-//           const formatDuration = (iso) => {
-//             const match = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
-//             if (!match) return '0:00';
-//             const [, h, m = '0', s = '0'] = match;
-//             return h ? `${h}:${m.padStart(2, '0')}:${s.padStart(2, '0')}` : `${m}:${s.padStart(2, '0')}`;
-//           };
+          const formatDuration = (iso) => {
+            const match = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+            if (!match) return '0:00';
+            const [, h, m = '0', s = '0'] = match;
+            return h ? `${h}:${m.padStart(2, '0')}:${s.padStart(2, '0')}` : `${m}:${s.padStart(2, '0')}`;
+          };
 
-//           return {
-//             id,
-//             title: item.snippet.title,
-//             thumbnail: item.snippet.thumbnails.high.url,
-//             url: `https://www.youtube.com/watch?v=${id}`,
-//             views: stat?.statistics?.viewCount
-//               ? `${parseInt(stat.statistics.viewCount).toLocaleString()} views`
-//               : 'N/A',
-//             duration: stat?.contentDetails?.duration
-//               ? formatDuration(stat.contentDetails.duration)
-//               : 'N/A',
-//           };
-//         });
+          return {
+            id,
+            title: item.snippet.title,
+            thumbnail: item.snippet.thumbnails.high.url,
+            url: `https://www.youtube.com/watch?v=${id}`,
+            views: stat?.statistics?.viewCount
+              ? `${parseInt(stat.statistics.viewCount).toLocaleString()} views`
+              : 'N/A',
+            duration: stat?.contentDetails?.duration
+              ? formatDuration(stat.contentDetails.duration)
+              : 'N/A',
+          };
+        });
 
-//         setVideos(combined);
-//       } catch (err) {
-//         console.error('Failed to fetch YouTube data:', err);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
+        setVideos(combined);
+      } catch (err) {
+        console.error('Failed to fetch YouTube data:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-//     fetchVideos();
-//   }, []);
+    fetchVideos();
+  }, []);
 
 
 
@@ -81,46 +81,46 @@ const LatestContent = () => {
 //   Mock data - Replace with actual YouTube API fetch
 
 
-  useEffect(() => {
-    // Simulate API fetch
-    setTimeout(() => {
-      setVideos([
-        {
-          id: '1',
-          title: 'How to Build a Personal Brand in 2025',
-          thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-          url: 'https://youtube.com/watch?v=dQw4w9WgXcQ',
-          views: '1.2M views',
-          duration: '12:34'
-        },
-        {
-          id: '2',
-          title: 'The Psychology of Money | Ankur Warikoo',
-          thumbnail: 'https://i.ytimg.com/vi/abc123/maxresdefault.jpg',
-          url: 'https://youtube.com/watch?v=abc123',
-          views: '890K views',
-          duration: '18:45'
-        },
-        {
-          id: '3',
-          title: 'Morning Routines of Successful Entrepreneurs',
-          thumbnail: 'https://i.ytimg.com/vi/xyz456/maxresdefault.jpg',
-          url: 'https://youtube.com/watch?v=xyz456',
-          views: '1.5M views',
-          duration: '15:20'
-        },
-        {
-          id: '4',
-          title: 'Startup Funding Explained Simply',
-          thumbnail: 'https://i.ytimg.com/vi/def789/maxresdefault.jpg',
-          url: 'https://youtube.com/watch?v=def789',
-          views: '750K views',
-          duration: '22:10'
-        }
-      ]);
-      setLoading(false);
-    }, 800);
-  }, []);
+  // useEffect(() => {
+  //   // Simulate API fetch
+  //   setTimeout(() => {
+  //     setVideos([
+  //       {
+  //         id: '1',
+  //         title: 'How to Build a Personal Brand in 2025',
+  //         thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+  //         url: 'https://youtube.com/watch?v=dQw4w9WgXcQ',
+  //         views: '1.2M views',
+  //         duration: '12:34'
+  //       },
+  //       {
+  //         id: '2',
+  //         title: 'The Psychology of Money | Ankur Warikoo',
+  //         thumbnail: 'https://i.ytimg.com/vi/abc123/maxresdefault.jpg',
+  //         url: 'https://youtube.com/watch?v=abc123',
+  //         views: '890K views',
+  //         duration: '18:45'
+  //       },
+  //       {
+  //         id: '3',
+  //         title: 'Morning Routines of Successful Entrepreneurs',
+  //         thumbnail: 'https://i.ytimg.com/vi/xyz456/maxresdefault.jpg',
+  //         url: 'https://youtube.com/watch?v=xyz456',
+  //         views: '1.5M views',
+  //         duration: '15:20'
+  //       },
+  //       {
+  //         id: '4',
+  //         title: 'Startup Funding Explained Simply',
+  //         thumbnail: 'https://i.ytimg.com/vi/def789/maxresdefault.jpg',
+  //         url: 'https://youtube.com/watch?v=def789',
+  //         views: '750K views',
+  //         duration: '22:10'
+  //       }
+  //     ]);
+  //     setLoading(false);
+  //   }, 800);
+  // }, []);
 
   // GSAP Animation
   useEffect(() => {

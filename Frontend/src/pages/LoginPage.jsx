@@ -22,8 +22,8 @@ const LoginPage = () => {
       const res = await login({ email, password });
       console.log("response from login page !", res)
 
-      localStorage.setItem('token', res.data.token);
-      localStorage.setItem('user', JSON.stringify(res.data.user));
+      localStorage.setItem('token', res.token);
+      localStorage.setItem('user', JSON.stringify(res.user));
       navigate('/'); // ✅ Proper route change
     } catch (err) {
       const msg = err.response?.data?.message || 'Login failed';

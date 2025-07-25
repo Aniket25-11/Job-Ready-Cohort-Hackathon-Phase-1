@@ -20,6 +20,8 @@ const LoginPage = () => {
 
     try {
       const res = await login({ email, password });
+      console.log("response from login page !", res)
+
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       navigate('/'); // ✅ Proper route change

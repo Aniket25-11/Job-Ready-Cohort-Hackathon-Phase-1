@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/auth'; // adjust if needed
+const API_URL = 'https://job-ready-cohort-hackathon-phase-1-olive.vercel.app/api/auth'; // adjust if needed
 
 // Register user
 export const register = async (userData) => {

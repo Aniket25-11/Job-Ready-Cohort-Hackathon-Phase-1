@@ -7,7 +7,12 @@ dotenv.config();
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://job-ready-cohort-hackathon-phase-1.vercel.app", // your frontend
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Routes

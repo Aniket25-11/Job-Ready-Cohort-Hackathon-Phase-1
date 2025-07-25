@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FiUser, FiMail, FiLock, FiArrowRight, FiEye, FiEyeOff } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { register } from '../services/authService';
+import { useNavigate } from 'react-router-dom';
+
 
 const SignupPage = () => {
   const [name, setName] = useState('');
@@ -14,6 +16,8 @@ const SignupPage = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+const navigate = useNavigate();
 
   const validateForm = () => {
     if (!name || !email || !password || !confirmPassword) {
@@ -46,7 +50,8 @@ const SignupPage = () => {
 
     try {
       await register({ name, email, password });
-      window.location.href = '/login'; // Redirect after signup
+      // window.location.href = '/login'; // Redirect after signup
+      navigate('/login')
     } catch (err) {
       const msg = err.response?.data?.message || 'Signup failed';
       setError(msg);

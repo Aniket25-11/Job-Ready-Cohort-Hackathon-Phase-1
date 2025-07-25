@@ -37,7 +37,7 @@ const Navbar = () => {
         className="flex items-center gap-1 px-4 py-2 bg-gradient-to-r from-[#6C63FF] to-[#FF6B6B] rounded-full text-white hover:shadow-lg transition-all"
       >
         <FiUser className="w-4 h-4" />
-        Login/Signup
+        Login/Signup 
       </Link>
     );
   };

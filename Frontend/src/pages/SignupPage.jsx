@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiUser, FiMail, FiLock, FiArrowRight, FiEye, FiEyeOff } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { register } from '../services/authService';
+// ✅ NEW:
+import { signup } from '../services/authService';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -49,7 +50,7 @@ const navigate = useNavigate();
     }
 
     try {
-      await register({ name, email, password });
+      await signup({ name, email, password });
       // window.location.href = '/login'; // Redirect after signup
       navigate('/login')
     } catch (err) {

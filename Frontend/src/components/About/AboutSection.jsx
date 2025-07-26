@@ -524,16 +524,16 @@ gsap.to(mediaRef.current.querySelectorAll('.media-logo'), {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex justify-center gap-6"
           >
-            <a href="#" className="text-white hover:text-pink-300 transition-colors">
+            <a href="https://www.youtube.com/@warikoo" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-300 transition-colors">
               <FiYoutube size={24} />
             </a>
-            <a href="#" className="text-white hover:text-pink-300 transition-colors">
+            <a href="https://x.com/warikoo" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-300 transition-colors">
               <FiTwitter size={24} />
             </a>
-            <a href="#" className="text-white hover:text-pink-300 transition-colors">
+            <a href="http://linkedin.com/in/warikoo" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-300 transition-colors">
               <FiLinkedin size={24} />
             </a>
-            <a href="#" className="text-white hover:text-pink-300 transition-colors">
+            <a href="https://www.instagram.com/ankurwarikoo/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-300 transition-colors">
               <FiInstagram size={24} />
             </a>
           </motion.div>

@@ -82,6 +82,10 @@ const Navbar = () => {
             Book 4
             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#6C63FF] transition-all duration-300 group-hover:w-full"></span>
           </Link>
+          <Link to="/about" className="text-white hover:text-[#6C63FF] transition-colors duration-300 relative group">
+            About
+            <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-[#6C63FF] transition-all duration-300 group-hover:w-full"></span>
+          </Link>
           <AuthButton />
         </div>
       </div>

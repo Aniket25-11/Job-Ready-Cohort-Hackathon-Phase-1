@@ -5,12 +5,14 @@ import ProductsPage from "./pages/ProductsPage";
 import AboutPage from "./pages/AboutPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+// import ScrollToTop from "./components/ScrollToTop";
 
 // Book detail pages
 import Book1Page from "./pages/ProductDetailsPage";    // Previously: ProductDetailsPage
 import Book2Page from "./pages/ProductDetailsPage2";
 import Book3Page from "./pages/ProductDetailsPage3";
 import Book4Page from "./pages/ProductDetailsPage4";
+import ScrollToTop from "./ScrollToTop";
 
 // Navbar
 // import Navbar from "./components/Home/Navbar";
@@ -19,6 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <Navbar /> */}
+       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />

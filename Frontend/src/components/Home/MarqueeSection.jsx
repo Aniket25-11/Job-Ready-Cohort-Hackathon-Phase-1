@@ -39,7 +39,7 @@ function InfiniteMarquee() {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <section className="w-full bg-gray-900 text-white py-12 overflow-hidden">
+    <section className="w-full bg-black text-white py-12 overflow-hidden">
       <h2 className="text-center text-2xl md:text-3xl font-bold mb-6">AS FEATURED ON</h2>
 
       {/* Leftward */}
